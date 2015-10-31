@@ -1,0 +1,13 @@
+small todo, khgtuto_1: disk usage supervision
+x step0,1,2 todo: intro, env, hello world servlet
+x template for tuto: html or google docs or somthing else, stackoverflow editor
+x short introduction
+x create folder in workspace & in github
+- screenshot from the end
+x where to download eclipse jee
+x how to isntall it
+x where to download tomcat  & install it
+x jdk
+- create project
+- hello world servlet
+- hello world servlet +argument + jsp
