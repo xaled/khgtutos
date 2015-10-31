@@ -18,7 +18,7 @@ This installs JDK 7 (which includes Java JDK, JRE and the Java browser plugin):
 
 1.2 Install Eclipse JEE
 -----------------------
-Download eclipse from: [http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz][1]
+Download eclipse from: http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz. (if this link doesn't work, search for the download link in http://www.eclipse.org)
 
 create your app dir in your home
 
@@ -38,7 +38,26 @@ From the apache tomcat download page, download the last stable version of tomcat
 
 Step2: Create Hello World project
 =================================
-2.1: Create project
+2.1: Create Project in github.com
+---------------------------------
+Go to http://github.com, if you don't have an account sign up here: http://github.com/join.
+On your github home page, create a new repository.
+
+Name your repositorie `disk-usage-supervision`, and check `Initialize this repository with a README`.
+
+Choose Java in `add .gitignore` and create the repository!
+
+Now clone your github repositorie in your local machine:
+
+    $ mkdir -p workspace
+    $ cd workspace
+    $ git clone "https://github.com/YOUR_ACCOUNT/disk-usage-supervision.git"
+
+2.2: Create project in Eclipse
 -------------------
 Open eclipse from `apps/eclipse-jee-mars-1-linux-gtk-x86_64/eclipse`.
+
+From eclipse File menu click new project: `File > New > Project`.
+Under Web choose *Dynamic Web Prject*.
+Specify the Project name: `disk-usage-supervision`.
 
