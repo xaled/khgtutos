@@ -1,0 +1,19 @@
+http://download.virtualbox.org/virtualbox/5.0.8/virtualbox-5.0_5.0.8-103449~Ubuntu~trusty_amd64.deb
+http://mirror.ufs.ac.za/eclipse/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz
+http://www.us.apache.org/dist/tomcat/tomcat-7/v7.0.65/bin/apache-tomcat-7.0.65.tar.gz
+http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
+http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso
+https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/archive/v1.0.7.zip
+
+script:
+sudo apt-get install docker.io
+sudo service docker start
+sudo docker pull ubuntu
+sudo docker pull mysql
+sudo docker pull nazarpc/phpmyadmin
+sudo docker pull tomcat
+
+#install jdk7
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java7-installer
