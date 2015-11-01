@@ -142,6 +142,7 @@ Output result html
       <table> </table>
    </body>
 </html>
+```
 3.4 Basic Logging & Exception Logging
 -------------------------------------
 check code return
