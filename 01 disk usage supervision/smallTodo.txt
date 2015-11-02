@@ -9,11 +9,26 @@ x how to isntall it
 x where to download tomcat  & install it
 x jdk
 x create project
-- structure:
+x structure:
 	x step 2
 	x step 3
 	x step 4
 	x step 5
 	x step 6
-- hello world servlet
-- hello world servlet +argument + jsp
+- smallTodo to md
+- env
+	- download eclipse & install it
+	- copy ubuntu server + docker pulls image
+- step 2 todo
+	- hello world servlet
+	- hello world servlet +argument + jsp
+	- xml vs annoations
+	- logging search
+	- logging dw jar or apt-get + config file
+	- logging to zim
+	- screenshots
+- step 3 todo
+- step 4 todo
+- step 5 todo
+- step 6 todo
+- step 7 todo

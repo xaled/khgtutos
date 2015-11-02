@@ -55,42 +55,72 @@ Now clone your github repositorie in your local machine:
 
 2.2: Create project in Eclipse
 ------------------------------
-Open eclipse from `apps/eclipse-jee-mars-1-linux-gtk-x86_64/eclipse`.
+Open eclipse from `apps/eclipse/eclipse`. You can create a launcher for eclipse in your Desktop by right-click and `Add new launcher`.
 
-From eclipse File menu click new project: `File > New > Project`.
-Under Web choose *Dynamic Web Project*.
-Specify the Project name: `disk-usage-supervision`.
+If it asks you about workspace choose the default workspace: `/home/USER/workspace`, and check `Use this as the default and do not ask again`.
+
+### Adding Tomcat server:
+Click on: `File > New > Others', then search for Server/Server and click on next.
+
+Filter for **tomcat** and choose **Tomcat v7.0 Server**, then click on next.
+
+Now specify the server directory: `/home/USER/apps/apache-tomcat-7.0.65` and click on finish.
+
+### Creating dynamic web project
+
+Click on: `File > New > Project', then search for **Dynamic Web Project** and click on next.
+
+Specify the Project name: `disk-usage-supervision` and click on finish.
 
 
 2.3: Create new Servlet Helloworld1
 -----------------------------------
-`File > New > Servlet`
+Right click on your project in the side pane, and click on `New > Servlet`
 
-Return this html:
-```html
-<html>
-   <body>
-      <h1>Hello world</h1>
-   </body>
-</html>
+Specify the java package as `com.diskusage.servlets` and Class name as `HelloWorld1`, then click on finish. (You can see other options if you click on next)
+
+Change the `doGet()` method to return an HTML Hello world message:
+
+```java
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	String htmlResponse = "<html><body><h1>Hello World</h1></body></html>";
+	response.getWriter().append(htmlResponse);
+}
 ```
-2.4: Web.xml
-------------
-Web.xml vs Annoations
+
+From the `Run` menu click on `Run as > Server`. Choose the server you have created before and click on finish.
+
+If the server is already up, restart it.
+
+Now you you can navigate to your first servlet: http://localhost:8080/disk-usage-supervision/
+
 
 2.4: Create new Servlet Helloworld2
 -----------------------------------
-`File > New > Servlet`
+In your second servlet we will use a JSP page to show the result.
 
-`File > New > JSP`
+In this servlet the messages will depend on a parameter **name** sent by the user. If the user specified this parameter the servlet will show **Hello NAME**. Else, it will show the plain old **Hello World**!
 
-Return this html:
-```html
-<html>
-   <body>
-      <h1>Hello $name</h1>
-   </body>
-</html>
+Now create a new servlet in the same java package, call it `HelloWorld2`
+
+You can change the servlet path by change this *Annotation*: `@WebServlet("/HelloName")`
+
+Now create a new JSP file from right click on the project folder then `New > JSP File`. Call it `HelloWorld.jsp`, and add the following code inside the **body** tag:
+```jsp
+<h1>Hello <%out.print(request.getAttribute("name")); %></h1>
+```
+
+Now return to your servlet class and change the **doGet()** implementation to the following:
+
+```java
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	String name = "World";
+	if(request.getParameter("name")!=null){
+		name = request.getParameter("name");
+	}
+	request.setAttribute("name", name);
+	getServletContext().getRequestDispatcher("/HelloWorld.jsp").forward(request, response);
+}
 ```
 
 Step3: Minimum Valuable Product
